@@ -11574,7 +11574,7 @@ function packageProcess(package_name, bump_gist_raw_link) {
             const resp = yield axios_default().get(bump_gist_raw_link);
             return Array.from(resp.data
                 .toString()
-                .split()
+                .split('\n')
                 .map((item) => item.trim()));
         }
         return [package_name];
