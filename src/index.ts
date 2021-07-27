@@ -43,7 +43,7 @@ async function main() {
         await livecheckAndBumpingCaskPr(pkg, token, message)
       }
     }
-    ;``
+
     const payload = JSON.stringify(context.payload, undefined, 2)
     console.log(`The event payload: ${payload}`)
   } catch (error) {

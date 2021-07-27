@@ -2,7 +2,7 @@ import { exec, getExecOutput } from '@actions/exec'
 
 async function getUnameInfo() {
   const execOutput = await getExecOutput('uname')
-  if (execOutput.exitCode !== 0 || execOutput.stderr !== null) {
+  if (execOutput.exitCode !== 0) {
     throw new Error('Command `uname` is not support in this system.')
   }
   return execOutput.stdout.toString().trim()
