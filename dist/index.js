@@ -11471,9 +11471,9 @@ function brewCaskPr(package_name, latest_version, token, message) {
             '--no-browse',
         ];
         if (message) {
-            cask_bumping_command.concat(['--message', message]);
+            cask_bumping_command.push('--message', message);
         }
-        cask_bumping_command.concat(['--version', latest_version, package_name]);
+        cask_bumping_command.concat('--version', latest_version, package_name);
         const bump_cask_pr_result = yield (0,exec.exec)('brew', cask_bumping_command, {
             listeners: {
                 stderr: () => process.stderr,
@@ -11483,6 +11483,16 @@ function brewCaskPr(package_name, latest_version, token, message) {
         if (bump_cask_pr_result !== 0) {
             throw Error(`bump-cask-pr ${package_name}:${latest_version} failed!`);
         }
+    });
+}
+function brewUpdate() {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield (0,exec.exec)('brew', ['update'], {
+            listeners: {
+                stderr: () => process.stderr,
+                stdout: () => process.stdout,
+            },
+        });
     });
 }
 function livecheckAndBumpingCaskPr(packageName, token, message) {
@@ -11598,6 +11608,7 @@ function main() {
                 user.data.email ||
                 `${user.data.id}+${user.data.login}@users.noreply.github.com`);
             yield setGitUser(gitName, gitEmail);
+            yield brewUpdate();
             for (const pkg of yield packageProcess(packageName, bumpGistRawLink)) {
                 if (pkg !== null && typeof pkg === 'string') {
                     yield livecheckAndBumpingCaskPr(pkg, token, message);

@@ -1,7 +1,7 @@
 import { getInput, setFailed } from '@actions/core'
 import { context } from '@actions/github'
 import axios from 'axios'
-import { livecheckAndBumpingCaskPr } from './homebrew'
+import { brewUpdate, livecheckAndBumpingCaskPr } from './homebrew'
 import { isMacOs, setGitUser } from './utils'
 import { fetchUserInfo } from './github'
 
@@ -43,6 +43,7 @@ async function main() {
     )
 
     await setGitUser(gitName, gitEmail)
+    await brewUpdate()
     for (const pkg of await packageProcess(packageName, bumpGistRawLink)) {
       if (pkg !== null && typeof pkg === 'string') {
         await livecheckAndBumpingCaskPr(pkg, token, message)

@@ -49,6 +49,15 @@ async function brewCaskPr(
   }
 }
 
+export async function brewUpdate() {
+  await exec('brew', ['update'], {
+    listeners: {
+      stderr: () => process.stderr,
+      stdout: () => process.stdout,
+    },
+  })
+}
+
 export async function livecheckAndBumpingCaskPr(
   packageName: string,
   token: string,
