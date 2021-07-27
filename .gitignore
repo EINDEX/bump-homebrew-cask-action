@@ -2,4 +2,3 @@ node_modules
 *.iml
 *.ipr
 *.iws
-.husky
