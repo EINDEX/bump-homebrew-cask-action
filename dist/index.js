@@ -258,7 +258,7 @@ System.register("index", ["@actions/core", "@actions/github", "src/homebrew", "s
                         email = core_1.getInput('email');
                         name = core_1.getInput('name');
                         package_name = core_1.getInput('package');
-                        bump_gist_raw_link = core_1.getInput('bump_gist_raw_link');
+                        bump_gist_raw_link = core_1.getInput('bump-gist-raw-link');
                         message = core_1.getInput('message');
                         return [4 /*yield*/, utils_1.isMacOs()];
                     case 1:
