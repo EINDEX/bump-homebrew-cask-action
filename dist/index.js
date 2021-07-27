@@ -11514,7 +11514,7 @@ var utils_awaiter = (undefined && undefined.__awaiter) || function (thisArg, _ar
 function getUnameInfo() {
     return utils_awaiter(this, void 0, void 0, function* () {
         const execOutput = yield (0,exec.getExecOutput)('uname');
-        if (execOutput.exitCode !== 0 || execOutput.stderr !== null) {
+        if (execOutput.exitCode !== 0) {
             throw new Error('Command `uname` is not support in this system.');
         }
         return execOutput.stdout.toString().trim();
@@ -11528,7 +11528,6 @@ function isMacOs() {
 }
 function setGitUser(name, email) {
     return utils_awaiter(this, void 0, void 0, function* () {
-        // setting up git username and email
         yield (0,exec.exec)('git', ['config', '--global', 'user.name', name]);
         yield (0,exec.exec)('git', ['config', '--global', 'user.email', email]);
     });
@@ -11601,8 +11600,6 @@ function main() {
                     yield livecheckAndBumpingCaskPr(pkg, token, message);
                 }
             }
-            ;
-            ``;
             const payload = JSON.stringify(github.context.payload, undefined, 2);
             console.log(`The event payload: ${payload}`);
         }

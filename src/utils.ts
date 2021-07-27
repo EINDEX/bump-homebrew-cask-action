@@ -14,7 +14,6 @@ export async function isMacOs() {
 }
 
 export async function setGitUser(name: string, email: string) {
-  // setting up git username and email
   await exec('git', ['config', '--global', 'user.name', name])
   await exec('git', ['config', '--global', 'user.email', email])
 }
