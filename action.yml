@@ -16,7 +16,7 @@ inputs:
     description: 'Trigger bumping package'
     deprecationMessage: 'Package you want to bumping'
     required: false
-  bump_gist_raw_link:
+  bump-gist-raw-link:
     description: 'Gist raw url of package list'
     deprecationMessage: 'Gist raw url of package list you want bumping up'
     required: false

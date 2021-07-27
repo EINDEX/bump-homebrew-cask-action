@@ -12,7 +12,7 @@ The package need bumping.
 
 **Recommendation** Cask package maintainer use this.
 
-## `bump_gist_raw_link`
+## `bump-gist-raw-link`
 Gist raw url of package list.
 **Recommendation** Please suggest cask package maintainer use this action to bumping up when they release.
 

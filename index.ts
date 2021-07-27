@@ -20,7 +20,7 @@ async function main() {
         const email = getInput('email');
         const name = getInput('name');
         const package_name = getInput('package');
-        const bump_gist_raw_link = getInput('bump_gist_raw_link')
+        const bump_gist_raw_link = getInput('bump-gist-raw-link')
         const message = getInput('message')
 
         if (!await isMacOs()) {
