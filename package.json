@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
+    "prepare": "husky install",
     "build": "tsc --build tsconfig.json"
   },
   "keywords": [],
@@ -17,6 +18,12 @@
   },
   "devDependencies": {
     "@types/node": "^16.4.3",
+    "husky": "^7.0.1",
     "jsmin": "^1.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build"
+    }
   }
 }
