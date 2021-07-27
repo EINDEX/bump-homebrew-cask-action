@@ -11,7 +11,12 @@ async function packageProcess(
 ) {
   if (bump_gist_raw_link) {
     const resp = await axios.get(bump_gist_raw_link)
-    return Array.from(resp.data.split.map((item: string) => item.trim()))
+    return Array.from(
+      resp.data
+        .toString()
+        .split()
+        .map((item: string) => item.trim()),
+    )
   }
   return [package_name]
 }
