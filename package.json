@@ -40,8 +40,5 @@
     "jsmin": "^1.0.1",
     "prettier": "^2.3.2",
     "typescript": "^4.3.5"
-  },
-  "hooks": {
-    "pre-commit": "npm run all",
   }
 }
