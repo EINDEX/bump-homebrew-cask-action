@@ -18,7 +18,6 @@ inputs:
     required: false
   bump-gist-raw-link:
     description: 'Gist raw url of package list'
-    deprecationMessage: 'Gist raw url of package list you want bumping up'
     required: false
   message:
     description: 'bump-cask-pr message'
