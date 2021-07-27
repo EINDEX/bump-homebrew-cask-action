@@ -14,7 +14,7 @@ async function packageProcess(
     return Array.from(
       resp.data
         .toString()
-        .split()
+        .split('\n')
         .map((item: string) => item.trim()),
     )
   }
