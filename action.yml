@@ -1,0 +1,29 @@
+name: 'Homebrew Cask Bumper'
+description: 'Automatic run brew bump-cask-pr to create pull request'
+inputs:
+  token:
+    description: 'Homebrew github api token'
+    required: true
+  email:
+    description: 'Github user email'
+    default: ${{ github.email }}
+    required: false
+  name:
+    description: 'Github user name'
+    default: ${{ github.actor }}
+    required: false
+  package:
+    description: 'Trigger bumping package'
+    deprecationMessage: 'Package you want to bumping'
+    required: false
+  bump_gist_raw_link:
+    description: 'Gist raw url of package list'
+    deprecationMessage: 'Gist raw url of package list you want bumping up'
+    required: false
+  message:
+    description: 'bump-cask-pr message'
+    required: false
+    default: 'Automatic bumping by [Bump Homebrew Cask Action](https://github.com/EINDEX/bump-homebrew-cask-action)'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
