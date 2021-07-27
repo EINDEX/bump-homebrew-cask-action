@@ -1,5 +1,8 @@
 name: 'Homebrew Cask Bumper'
 description: 'Automatic run brew bump-cask-pr to create pull request'
+branding:
+  icon: 'chevron-up'
+  color: 'purple'
 inputs:
   token:
     description: 'Homebrew github api token'
