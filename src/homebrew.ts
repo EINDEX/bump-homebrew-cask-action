@@ -37,7 +37,7 @@ async function brewCaskPr(
   if (message) {
     cask_bumping_command.push('--message', message)
   }
-  cask_bumping_command.concat('--version', latest_version, package_name)
+  cask_bumping_command.push('--version', latest_version, package_name)
   const bump_cask_pr_result = await exec('brew', cask_bumping_command, {
     listeners: {
       stderr: () => process.stderr,
