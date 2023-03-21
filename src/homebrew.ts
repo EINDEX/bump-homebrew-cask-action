@@ -58,6 +58,15 @@ export async function brewUpdate() {
   })
 }
 
+export async function brewTap(tap: string) {
+  await exec('brew', ['tap', tap], {
+    listeners: {
+      stderr: () => process.stderr,
+      stdout: () => process.stdout,
+    },
+  })
+}
+
 export async function livecheckAndBumpingCaskPr(
   packageName: string,
   token: string,
